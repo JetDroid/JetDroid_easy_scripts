@@ -94,8 +94,15 @@ else
 }
 fi 
 
-echo "Changing ownership of all files to root"
+# Permissions and last minute fixes
+echo "Changing ownership of all files to root.root"
 chown -R root.root *
+echo "Changing ownership of /data files to 1000.1000"
+chown -R 1000.1000 data
+echo "Creating /dev/console with permissions 777"
+sudo mknod dev/console c 5 1
+sudo chmod 777 dev/console
+
 
 echo "JetDroid installation completed"
 echo
