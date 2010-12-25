@@ -103,6 +103,20 @@ echo "Creating /dev/console with permissions 777"
 sudo mknod dev/console c 5 1
 sudo chmod 777 dev/console
 
+echo "Do you want to enable writing of logfiles? "
+OPTIONS="Yes No"
+select opt in $OPTIONS; do
+  if [ "$opt" = "Yes" ]; then
+    echo "logfile option selected"
+    break
+  elif [ "$opt" = "No" ]; then
+    echo "no logfile option selected"
+    break
+  else
+    clear
+    echo Bad option
+  fi
+done
 
 echo "JetDroid installation completed"
 echo
