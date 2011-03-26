@@ -16,4 +16,5 @@
   rm -rf sqlite_stmt_journals
   rm -rf sys
   rm -rf system
-
+  rm -rf xbin
+  rm -rf sd-ext

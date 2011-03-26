@@ -1,7 +1,7 @@
 #/bin/bash
 
 GAppsArchive=gapps-passion-EPE54B-signed.zip
-GAppsURL=http://cyanogenmod-mirror.local.host.name/gapps/gapps-passion-EPE54B-signed.zip
+GAppsURL=http://goo-inside.me/gapps/gapps-passion-EPE54B-signed.zip
 
 #check if we are in the right working directory
 if [ -f JetDroid-install-gapps.sh ]; then 
@@ -13,7 +13,7 @@ if !([ -f install/$GAppsArchive ]); then
 { 
   echo "GApps archive not found. Trying to download it ..."
   cd install
-  wget $GAppsURL
+  wget -O $GAppsArchive $GAppsURL
   cd ..
 }
 fi 

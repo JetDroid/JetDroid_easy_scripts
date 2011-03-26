@@ -1,8 +1,7 @@
 #/bin/bash
 
-JetPlatform=JetPlatform-0.3pre1-binary.tgz
-JetPlatformURL=http://jetdroid.googlecode.com/files/JetPlatform-0.3pre1-binary.tgz
-JetKernel=JetKernel-0.3pre3-binary.tgz
+JetPlatform=JetDroid-JetPlatform_binary-c397cae.tar.gz
+JetPlatformURL=https://github.com/JetDroid/JetPlatform_binary/tarball/c397caee0fbda5303cc8f514013f376f8a41e8a5
 
 #check if we are in the right working directory
 if [ -f JetDroid-easy-install.sh ]; then 
@@ -63,7 +62,7 @@ if !([ -f install/$JetPlatform ]); then
   echo "JetPlatform file does not exist. Trying to download it ..."
   echo
   cd install
-  wget $JetPlatformURL
+  wget -O $JetPlatform $JetPlatformURL 
   cd ..
 }
 fi
@@ -81,18 +80,6 @@ else
 }
 fi 
 
-# install JetKernel files
-if [ -f install/$JetKernel ]; then 
-{
-  echo "Installing files from JetKernel archive (install/$JetKernel)"
-  tar xzf install/$JetKernel
-}
-else
-{
-  echo "ERROR: JetKernel archive (install/$JetKernel) not found"
-  exit -1
-}
-fi 
 
 # Permissions and last minute fixes
 echo "Changing ownership of all files to root.root"
@@ -103,20 +90,6 @@ echo "Creating /dev/console with permissions 777"
 sudo mknod dev/console c 5 1
 sudo chmod 777 dev/console
 
-echo "Do you want to enable writing of logfiles? "
-OPTIONS="Yes No"
-select opt in $OPTIONS; do
-  if [ "$opt" = "Yes" ]; then
-    echo "logfile option selected"
-    break
-  elif [ "$opt" = "No" ]; then
-    echo "no logfile option selected"
-    break
-  else
-    clear
-    echo Bad option
-  fi
-done
 
 echo "JetDroid installation completed"
 echo
