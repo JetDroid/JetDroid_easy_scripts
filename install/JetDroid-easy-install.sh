@@ -1,7 +1,8 @@
 #/bin/bash
 
-JetPlatform=JetDroid-JetPlatform_binary-c397cae.tar.gz
+JetPlatform=JetPlatform_binary-c397cae.tar.gz
 JetPlatformURL=https://github.com/JetDroid/JetPlatform_binary/tarball/c397caee0fbda5303cc8f514013f376f8a41e8a5
+JetPlatfromDir=JetDroid-JetPlatform_binary-c397cae
 
 #check if we are in the right working directory
 if [ -f JetDroid-easy-install.sh ]; then 
@@ -62,7 +63,7 @@ if !([ -f install/$JetPlatform ]); then
   echo "JetPlatform file does not exist. Trying to download it ..."
   echo
   cd install
-  wget -O $JetPlatform $JetPlatformURL 
+  wget --no-check-certificate -O $JetPlatform $JetPlatformURL 
   cd ..
 }
 fi
@@ -72,6 +73,8 @@ if [ -f install/$JetPlatform ]; then
 {
   echo "Installing files from JetPlatform archive (install/$JetPlatform)"
   tar xzf install/$JetPlatform
+  cp -R $JetPlatfromDir/* ./
+  rm -rf $JetPlatfromDir
 }
 else
 {
@@ -87,6 +90,7 @@ chown -R root.root *
 echo "Changing ownership of /data files to 1000.1000"
 chown -R 1000.1000 data
 echo "Creating /dev/console with permissions 777"
+sudo mkdir dev
 sudo mknod dev/console c 5 1
 sudo chmod 777 dev/console
 
