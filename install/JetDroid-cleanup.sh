@@ -23,6 +23,6 @@
   rm -rf sqlite_stmt_journals
   rm -rf sys
   rm -rf system
-  rn ueventd.goldfish.rc ueventd.jet.rc ueventd.rc
+  rm ueventd.goldfish.rc ueventd.jet.rc ueventd.rc
   rm -rf vendor
   rm -rf xbin
