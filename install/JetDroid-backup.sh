@@ -11,4 +11,4 @@ else
   backupfile=$1
 fi
 
-tar czvf $backupfile cache config d data default.prop dev etc init init.goldfish.rc init.rc proc sbin sdcard sqlite_stmt_journals sys system zImage boot xbin sd-ext
+tar czvf $backupfile acct android.log boot cache config d data default.prop dev etc init init.goldfish.rc init.jet.rc init.rc kernel.log lib mnt proc radio recovery.rc sbin sd-ext sdcard sqlite_stmt_journals sys system ueventd* vendor xbin zImage 
