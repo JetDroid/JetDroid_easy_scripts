@@ -1,8 +1,8 @@
 #/bin/bash
 
-JetPlatform=JetPlatform_binary-c397cae.tar.gz
-JetPlatformURL=https://github.com/JetDroid/JetPlatform_binary/tarball/c397caee0fbda5303cc8f514013f376f8a41e8a5
-JetPlatfromDir=JetDroid-JetPlatform_binary-c397cae
+JetPlatform=JetDroid-JetPlatform_binary-0.5pre1-0-g646fad1.tar.gz
+JetPlatformURL=https://github.com/JetDroid/JetPlatform_binary/tarball/0.5pre1
+JetPlatfromDir=JetDroid-JetPlatform_binary-646fad1
 
 #check if we are in the right working directory
 if [ -f JetDroid-easy-install.sh ]; then 
